@@ -106,7 +106,9 @@ pub(crate) struct FontId {
 
 impl FontId {
     pub(crate) fn from_font(font: &FontRef) -> FontId {
-        FontId { postscript_name: font.font.postscript_name().unwrap_or_default() }
+        FontId {
+            postscript_name: font.font.postscript_name().unwrap_or_default(),
+        }
     }
 }
 

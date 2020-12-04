@@ -58,17 +58,14 @@ pub struct RunIter<'a> {
     glyph_ix: usize,
 }
 
+#[derive(Debug, Copy, Clone)]
 pub struct GlyphInfo {
     pub glyph_id: u32,
     pub offset: Vector2F,
 }
 
 impl<S: AsRef<str>> LayoutSession<S> {
-    pub fn create(
-        text: S,
-        style: &TextStyle,
-        collection: &FontCollection,
-    ) -> LayoutSession<S> {
+    pub fn create(text: S, style: &TextStyle, collection: &FontCollection) -> LayoutSession<S> {
         let mut i = 0;
         let mut fragments = Vec::new();
         while i < text.as_ref().len() {
